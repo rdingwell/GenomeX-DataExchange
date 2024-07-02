@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: clone scripts 
         run: gosu publisher curl https://raw.githubusercontent.com/HL7/ig-publisher-scripts/main/_updatePublisher.sh > /home/publisher/bin/_updatePublisher.sh
+      - name: update publisher
+        run: gosu publisher _updatePublisher.sh -y
       - name: Run pwd on scripts directory 
         run: pwd
       - name: Run ls on scripts directory 
