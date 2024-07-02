@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches-ignore:
+      - 'gh-pages'
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: hl7fhir/ig-publisher-base:latest
+    steps:
+      - name: Gather prerequisites
+        run: >
+          gosu publisher /home/publisher/bin/with-latest-sushi.sh &&
+          _updatePublisher.sh -y
+
+      - name: Checkout ./core
+        uses: actions/checkout@v2
+        with:
+          path: core
+
+      - name: Run publisher command
+        run: java -jar ./input-cache/publisher.jar publisher -ig core
