@@ -15,8 +15,7 @@ jobs:
     steps:
       - name: Gather prerequisites
         run: >
-          gosu publisher /home/publisher/bin/with-latest-sushi.sh &&
-          _updatePublisher.sh -y
+         _updatePublisher.sh -y
 
       - name: Checkout ./core
         uses: actions/checkout@v2
