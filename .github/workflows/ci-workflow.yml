@@ -19,7 +19,7 @@ jobs:
       - name: Run ls on scripts directory 
         run: ls 
       - name: Run ls on publisher directory 
-        run: ls /home/publisher
+        run: ls /home/publisher/bin
         
       - name: Checkout ./core
         uses: actions/checkout@v2
