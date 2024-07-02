@@ -14,7 +14,7 @@ jobs:
       image: hl7fhir/ig-publisher-base:latest
     steps:
       - name: clone scripts 
-        run: gosu publisher curl https://raw.githubusercontent.com/HL7/ig-publisher-scripts/main/_updatePublisher.sh > /home/publisher/bin/_updatePublisher.sh
+        run: gosu publisher git clone https://github.com/HL7/ig-publisher-scripts/tree/main /home/publisher/bin
       - name: update publisher
         run: gosu publisher _updatePublisher.sh -y
       - name: Run pwd on scripts directory 
