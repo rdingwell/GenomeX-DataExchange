@@ -14,12 +14,13 @@ jobs:
       image: hl7fhir/ig-publisher-base:latest
     steps:
       - name: Gather prerequisites
-        run: /home/publisher/bin/ig-publisher-scripts_updatePublisher.sh -y
+        run: /home/publisher/bin/ig-publisher-scripts/_updatePublisher.sh -y
 
       - name: Checkout ./core
         uses: actions/checkout@v2
         with:
           path: core
-
+      - name: Run ls on scripts directory 
+        run: ls 
       - name: Run publisher command
         run: java -jar ./input-cache/publisher.jar publisher -ig core
