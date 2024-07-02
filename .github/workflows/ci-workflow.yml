@@ -14,11 +14,11 @@ jobs:
       image: hl7fhir/ig-publisher-base:latest
     steps:
 
-      - name: Run ls on scripts directory 
+      - name: Run pwd on scripts directory 
         run: pwd
       - name: Run ls on scripts directory 
         run: ls 
-      - name: Run ls on scripts directory 
+      - name: Run ls on publisher directory 
         run: ls /home/publisher
         
       - name: Checkout ./core
