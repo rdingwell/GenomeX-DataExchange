@@ -13,8 +13,7 @@ jobs:
     container:
       image: hl7fhir/ig-publisher-base:latest
     steps:
-      - name: Gather prerequisites
-        run: /home/publisher/bin/ig-publisher-scripts/_updatePublisher.sh -y
+
       - name: Run ls on scripts directory 
         run: pwd
       - name: Run ls on scripts directory 
