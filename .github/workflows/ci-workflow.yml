@@ -13,6 +13,9 @@ jobs:
     container:
       image: hl7fhir/ig-publisher-base:latest
     steps:
+      - name: install sushi
+        run: npm install -g fsh-sushi
+        
       - name: clone scripts 
         run: gosu publisher git clone https://github.com/HL7/ig-publisher-scripts.git /home/publisher/bin
       - name: create input cache directory
