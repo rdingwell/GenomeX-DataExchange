@@ -15,14 +15,12 @@ jobs:
     steps:
       - name: clone scripts 
         run: gosu publisher git clone https://github.com/HL7/ig-publisher-scripts.git /home/publisher/bin
+      - name: create input cache directory
+        run: mkdir input-cache
+        
       - name: update publisher
-        run: gosu publisher _updatePublisher.sh -y
-      - name: Run pwd on scripts directory 
-        run: pwd
-      - name: Run ls on scripts directory 
-        run: ls 
-      - name: Run ls on publisher directory 
-        run: ls /home/publisher/bin
+        run:  _updatePublisher.sh -y
+
         
       - name: Checkout ./core
         uses: actions/checkout@v2
